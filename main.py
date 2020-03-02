@@ -5,7 +5,7 @@ from google.cloud import pubsub_v1
 project_id = os.getenv('GCP_PROJECT')
 topic_name = "ss-webhook"
 
-def ss_webhook_responder(request):
+def ss_webhook(request):
     request_json = request.get_json()
 
     # for a webhook challenge, return verification
