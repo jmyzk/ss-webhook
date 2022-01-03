@@ -1,6 +1,6 @@
 # ss-webhook
 
-This ww-webhook is a code of family of codes that handle smartsheet webhook.
+This ss-webhook is a code of family of codes that handle smartsheet webhook.
 The family of codes are:
 
 1 ss-create-webhook: create webhook
