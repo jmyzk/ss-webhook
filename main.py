@@ -2,7 +2,9 @@ import json
 import os
 from google.cloud import pubsub_v1
 
-project_id = os.getenv('GCP_PROJECT')
+# this os.getenv is not working, so direct input for the time beeing
+# project_id = os.getenv('GCP_PROJECT')
+project_id = "cloudsmart-llc"
 topic_name = "ss-webhook"
 
 def ss_update_webhook(request):
