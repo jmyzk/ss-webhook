@@ -5,6 +5,7 @@ from google.cloud import pubsub_v1
 # this os.getenv is not working, so direct input for the time beeing
 # project_id = os.getenv('GCP_PROJECT')
 # Just making comment changes add some meaningless comment
+# another meaningless comment
 project_id = 'cloudsmart-llc'
 topic_name = 'ss-webhook'
 
