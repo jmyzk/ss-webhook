@@ -19,7 +19,6 @@ def ss_webhook_responder(request):
 
     # if this is a callback
     elif request_json and "scopeObjectId" in request_json:
-        print(type(request_json))
         sheetid = request_json["scopeObjectId"]
         print("sheetid : ", sheetid)
         events = request_json["events"]
@@ -28,8 +27,8 @@ def ss_webhook_responder(request):
             print("objectType : ", objectType)
             eventType = event['eventType']
             print("eventType : ", eventType)
-        publish_result = publish_request_json(request_json)
-        print("call back publlish result ", publish_result)
+        publish_request_json(request_json)
+        # print("call back publlish result ", publish_result)
         return json.dumps({
              "callback from smartsheet sheet id ": sheetid
         })
@@ -44,4 +43,4 @@ def publish_request_json(request_json):
     future = publisher.publish(topic_path, data=data)
     print(future.result())
     print("Published messages.")
-    retrun future.result()
+    # retrun future.result()
