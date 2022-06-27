@@ -19,6 +19,7 @@ def ss_webhook_responder(request):
 
     # if this is a callback
     elif request_json and "scopeObjectId" in request_json:
+        print(type(request_json))
         sheetid = request_json["scopeObjectId"]
         print("sheetid : ", sheetid)
         events = request_json["events"]
