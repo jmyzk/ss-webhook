@@ -27,7 +27,13 @@ def ss_webhook_responder(request):
             print("objectType : ", objectType)
             eventType = event['eventType']
             print("eventType : ", eventType)
-        publish_request_json(request_json)
+        short_request_json = request_json
+        short_request_json.pop("nonce",None)
+        short_request_json.pop("scope",None)
+        for event in short_request_json["events"]:
+            event.pop("timestamp",None)
+            event.pop("userId",None)
+        publish_request_json(short_request_json)
         # print("call back publlish result ", publish_result)
         return json.dumps({
              "callback from smartsheet sheet id ": sheetid
@@ -35,10 +41,10 @@ def ss_webhook_responder(request):
     else:
       	return 'neither smartsheet challenge nor callback'
 
-def publish_request_json(request_json):
+def publish_request_json(short_request_json):
     publisher = pubsub_v1.PublisherClient()
     topic_path = publisher.topic_path(project_id, topic_name)
-    data = str(request_json)
+    data = str(short_request_json)
     data = data.encode("utf-8")
     future = publisher.publish(topic_path, data=data)
     print(future.result())
