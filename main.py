@@ -1,9 +1,11 @@
 import json
-import os
+# import os
 from google.cloud import pubsub_v1
 
 # this os.getenv shoud work in python 3.7
-project_id = os.getenv('GCP_PROJECT')
+# project_id = os.getenv('GCP_PROJECT')
+# changed python to 3.11
+project_id = 'smartsheet-api-functions'
 topic_name = 'ss-webhook'
 
 def ss_webhook_responder(request):
