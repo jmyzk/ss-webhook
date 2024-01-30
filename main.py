@@ -25,6 +25,8 @@ def ss_webhook_responder(request):
         print("sheetid : ", sheetid)
         events = request_json["events"]
         for event in events:
+            print('------ event ------')
+            print(event)
             objectType = event['objectType']
             print("objectType : ", objectType)
             eventType = event['eventType']
